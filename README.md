@@ -10,7 +10,7 @@
     * **SQL Injection (Medium level):** Vượt qua các bộ lọc cơ bản bằng kỹ thuật thay đổi phương thức truyền tin (POST/GET).
     * **Kỹ thuật cao cấp:** Sử dụng `ORDER BY`, `UNION SELECT` để trích xuất cấu trúc database, tên bảng, cột và dữ liệu nhạy cảm của người dùng.
 * **Giải pháp bảo mật & Khắc phục:**
-    * Phân tích cơ chế chống tấn công ở mức độ **High** và **Impossible** trong DVWA.
+    * Phân tích cơ chế chống tấn công ở mức độ **Low** trong DVWA.
     * Đề xuất sử dụng kỹ thuật **Prepared Statements** để ngăn chặn triệt để mã độc.
 
 ## 📂 Tài liệu đính kèm
