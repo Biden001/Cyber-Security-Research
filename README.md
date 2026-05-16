@@ -1,33 +1,44 @@
-# Nghiên cứu Khai thác và Phòng chống lỗ hổng SQL Injection (DVWA)
+# 🌐 Đồ Án An Ninh Mạng: Nghiên Cứu & Khai Thác SQL Injection Trên DVWA (Nhóm 14)
 
-## 📌 Giới thiệu dự án
-Đây là dự án nghiên cứu chuyên sâu về lỗ hổng bảo mật Web phổ biến nhất - **SQL Injection**. Nội dung tập trung vào việc thực hành khai thác thực tế trên môi trường **DVWA (Damn Vulnerable Web Application)** và đề xuất các giải pháp khắc phục triệt để.
+![Topic](https://img.shields.io/badge/Topic-SQL%20Injection-red?style=flat-down&logo=probot&logoColor=white)
+![Environment](https://img.shields.io/badge/Environment-DVWA%20Lab-orange?style=flat-down&logo=securityscorecard&logoColor=white)
+![Language](https://img.shields.io/badge/Stack-PHP%20%26%20MySQL-blue?style=flat-down&logo=php&logoColor=white)
 
-## 🛠️ Các nội dung chính đã thực hiện
-* **Môi trường thử nghiệm:** Triển khai hệ thống Lab với DVWA, sử dụng cơ sở dữ liệu MySQL.
-* **Kỹ thuật khai thác thực tế:**
-    * **SQL Injection (Low level):** Khai thác trực tiếp qua tham số đầu vào không được kiểm soát.
-    * **SQL Injection (Medium level):** Vượt qua các bộ lọc cơ bản bằng kỹ thuật thay đổi phương thức truyền tin (POST/GET).
-    * **Kỹ thuật cao cấp:** Sử dụng `ORDER BY`, `UNION SELECT` để trích xuất cấu trúc database, tên bảng, cột và dữ liệu nhạy cảm của người dùng.
-* **Giải pháp bảo mật & Khắc phục:**
-    * Phân tích cơ chế chống tấn công ở mức độ **Low** trong DVWA.
-    * Đề xuất sử dụng kỹ thuật **Prepared Statements** để ngăn chặn triệt để mã độc.
+Một dự án nghiên cứu và thực nghiệm giả lập về lỗ hổng bảo mật ứng dụng web nguy hiểm hàng đầu (SQL Injection) trên môi trường Damn Vulnerable Web Application (DVWA), từ đó đưa ra các giải pháp lập trình an toàn để vá lỗi và bảo vệ hệ thống.
 
-## 📂 Tài liệu đính kèm
-* [Báo cáo chi tiết (PDF)](./An%20Ninh%20Mạng%20Nhóm%2014.pdf)
-
-## 📚 Tài liệu nghiên cứu chính (Technical References)
-
-Dự án được thực hiện dựa trên việc nghiên cứu và áp dụng các kỹ thuật từ các nguồn uy tín sau:
-
-### 🇻🇳 Nguồn tiếng Việt:
-* **WhiteHat Forum (2021):** [Khai thác Error Based SQL Injection](https://whitehat.vn/threads/sql-injection-khai-thac-error-based-sql-injection.5664/). Đây là nguồn tham khảo chính cho phần thực hành tấn công dựa trên lỗi hiển thị.
-
-### 🌎 Nguồn tiếng Anh (Kỹ thuật chuyên sâu):
-* **OWASP (2021):** [A03:2021 – Injection](https://owasp.org/Top10/2021/A03_2021-Injection/). Tiêu chuẩn toàn cầu về bảo mật ứng dụng Web.
-* **The Web Application Hacker's Handbook:** *Stuttard & Pinto (2011)*. Cuốn "sách gối đầu giường" của dân Pentest để tìm kiếm lỗ hổng bảo mật.
-* **SQL Injection Attacks and Defense:** *Clarke, J. (2012)*. Cung cấp các kịch bản phòng thủ thực tế mà dự án đã áp dụng (Prepared Statements).
-* **Advanced SQL Injection:** *Anley, C. (2002)*. Nghiên cứu các kỹ thuật tấn công nâng cao trong môi trường SQL Server.
 ---
-**Người thực hiện:** Biden001 và các thành viên
-**Chuyên ngành:** Mạng máy tính
+
+### 🎯 Mục Đích Dự Án
+* **Hiểu rõ bản chất lỗ hổng:** Nghiên cứu một cách hệ thống về khái niệm, cơ chế hoạt động và mức độ nguy hiểm của các dạng tấn công SQL Injection đối với an toàn dữ liệu web.
+* **Mô phỏng thực tế nhằm nhận thức:** Xây dựng một môi trường lab giả lập để mô phỏng trực quan các kịch bản xâm nhập điển hình của hacker.
+* **Đề xuất giải pháp phòng vệ:** Phân tích mã nguồn tồn tại lỗ hổng, đề xuất phương pháp tối ưu giúp lập trình viên và quản trị viên phòng chống tấn công một cách triệt để.
+
+---
+
+### 🛠️ Chức Năng & Nội Dung Thực Nghiệm Chính
+
+1. **Phân tích phân loại các dạng lỗi SQLi:**
+   * Nghiên cứu chi tiết kỹ thuật khai thác của các dạng lỗi phổ biến: *Authentication Bypass, Error-based, Union-based, và Blind SQL Injection (Boolean-based, Time-based)*.
+
+2. **Thực nghiệm Vượt qua Đăng nhập (Login Bypass):**
+   * Giả lập kịch bản tấn công vào form login của DVWA (mức độ bảo mật thấp). Sử dụng chuỗi ký tự đặc biệt (ví dụ: `admin' #`) để bẻ gãy logic xác thực của câu lệnh SQL, đăng nhập thành công mà không cần mật khẩu.
+
+3. **Thực nghiệm Khai thác & Trích xuất Dữ liệu (Union-based):**
+   * Lợi dụng toán tử `UNION` để kết hợp các câu lệnh truy vấn độc hại, ép giao diện ứng dụng hiển thị thông tin nhạy cảm cấu trúc cơ sở dữ liệu.
+   * Thực hiện quy trình dò tìm số cột, lấy thông tin phiên bản máy chủ, liệt kê bảng/cột và trích xuất thành công dữ liệu tài khoản kèm chuỗi băm mật khẩu (Hash MD5).
+
+4. **Xây dựng Giải pháp Vá lỗi & Phòng thủ Chuyên sâu:**
+   * Khẳng định và triển khai kỹ thuật **Prepared Statement (Truy vấn tham số hóa)** làm lá chắn lõi để tách biệt hoàn toàn mã điều khiển và dữ liệu đầu vào.
+   * Đề xuất các giải pháp bảo mật nhiều lớp: Kiểm soát dữ liệu đầu vào, ẩn thông tin debug lỗi, thiết lập Tường lửa ứng dụng web (WAF) và hệ thống phát hiện/ngăn chặn xâm nhập IDS/IPS.
+
+---
+
+### 💻 Công Nghệ & Công Cụ Sử Dụng
+* **Môi trường giả lập:** DVWA (Damn Vulnerable Web Application)
+* **Nền tảng ứng dụng:** Ngôn ngữ lập trình PHP & Hệ quản trị cơ sở dữ liệu MySQL
+* **Công cụ hỗ trợ đề xuất:** SQLMap, Burp Suite, OWASP ZAP
+
+---
+
+### 👥 Thành Viên Thực Hiện
+* **Sinh viên thực hiện (Nhóm 14):** Đoàn Quang Huy và các người cộng sự.
